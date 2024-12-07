@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { About } from './pages/About'
+import { Apointment } from './pages/Apointment'
+import { Contact } from './pages/Contact'
+import { Doctor } from './pages/Doctor'
+import { Login } from './pages/Login'
+import { Myappointment } from './pages/Myappointment'
+import { Myprofile } from './pages/Myprofile'
+import {navbar} from "./components/navbar"
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='mx-4 sm:mx-[10%]'>
+      <navbar/>
+      <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/my-appointments' element={<Myappointment/>}/>
+          <Route path='/my-profile' element={<Myprofile/>}/>
+          <Route path='/doctor' element={<Doctor/>}/>
+          <Route path='/doctor/:speciality' element={<Doctor/>}/>
+          <Route path='/apointment/:docID' element={<Apointment/>}/>
+      </Routes>
+    </div>
   )
 }
 

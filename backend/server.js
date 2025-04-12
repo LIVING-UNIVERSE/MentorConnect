@@ -3,6 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './config/mongoDB.js'
 import connectCloudinary from './config/cloudinary.js';
+import adminRouter from './routes/adminRoute.js';
 
 
 // app congig
@@ -16,6 +17,9 @@ connectDB()
 connectCloudinary()
 
 // api endpoint
+app.use('/api/admin',adminRouter)
+
+
 app.get('/',(req,res)=>{
     res.send('API is working just fine')
 })

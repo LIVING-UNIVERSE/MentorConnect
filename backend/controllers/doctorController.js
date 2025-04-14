@@ -15,7 +15,7 @@ const changeAvailibility = async(req,res)=>{
         else{
             return res.json({
                 success:false,
-                message:`There is an error occured: ${error}`
+                message:'error occured in changeAvailiblily function'
             })
         }
     } 
@@ -26,7 +26,33 @@ const changeAvailibility = async(req,res)=>{
             message:`There is an error occured: ${error}`
         })
     }
-
 }
 
-export {changeAvailibility}
+
+//API for getting doctors list on frontend
+const doctorList = async(req,res)=>{
+    try {
+        const doctors = await doctorModel.find({}).select('-email,-password')
+        if(doctors){
+            return res.json({
+                success:true,
+                doctors
+            })
+        }
+        else{
+            return res.json({
+                success:false,
+                message:"error occured in doctorList function"
+            })
+        }
+    } 
+    catch (error) {
+        console.log("Error in authLogin",error|| error.message)
+        return res.json({
+            success:false,
+            message:`There is an error occured: ${error}`
+        })
+    }
+}
+
+export {changeAvailibility,doctorList}

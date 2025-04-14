@@ -4,6 +4,7 @@ import 'dotenv/config'
 import connectDB from './config/mongoDB.js'
 import connectCloudinary from './config/cloudinary.js';
 import adminRouter from './routes/adminRoute.js';
+import doctorRouter from './routes/doctorRoute.js';
 
 
 // app congig
@@ -19,7 +20,7 @@ connectCloudinary()
 
 // api endpoint
 app.use('/api/admin',adminRouter)
-
+app.use('/api/doctor',doctorRouter)
 
 app.get('/',(req,res)=>{
     res.send('API is working just fine')

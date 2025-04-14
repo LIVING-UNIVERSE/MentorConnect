@@ -4,7 +4,7 @@ const authAdmin = async(req,res,next)=>{
    try {
         const {atoken} = req.headers
         if(!atoken){
-            return res.status(401).json({
+            return res.json({
                 success:false,
                 message:"Unauthorized access!! Login again"
             })
@@ -12,7 +12,7 @@ const authAdmin = async(req,res,next)=>{
 
         const decoded_token= jwt.verify(atoken,process.env.JWT_SECRET)
         if(decoded_token!== process.env.ADMIN_EMAIL+process.env.ADMIN_PASSWORD){
-            return res.status(401).json({
+            return res.json({
                 success:false,
                 message:"Unauthorized access !"
             })
@@ -23,7 +23,7 @@ const authAdmin = async(req,res,next)=>{
    } 
    catch (error) {
     console.log("Error in authLogin",error|| error.message)
-        return res.status(500).json({
+        return res.json({
             success:false,
             message:`There is an error occured: ${error}`
         })

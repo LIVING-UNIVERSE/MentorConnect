@@ -101,4 +101,32 @@ const loginAdmin = async(req,res)=>{
     }
 }
 
-export {addDoctor,loginAdmin}
+
+
+// API for get all doctors data
+const allDoctors = async(req,res) =>{
+    try {
+        const doctors = await doctorModel.find({}).select('-password')
+        if(doctors){
+            return res.json({
+                success:true,
+                doctors
+            })
+        }
+        else{
+            return res.json({
+                success:false,
+                message:"All doctors data is not fetched"
+            })
+        }
+        
+    } catch (error) {
+        console.log("Error in allDoctors function",error|| error.message)
+        return res.json({
+            success:false,
+            message:`There is an error occured: ${error}`
+        })
+    }
+}
+
+export {addDoctor,loginAdmin,allDoctors}

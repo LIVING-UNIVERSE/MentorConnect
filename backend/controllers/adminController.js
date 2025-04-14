@@ -16,23 +16,23 @@ const addDoctor = async(req,res) =>{
         for(const key in data){
             if(typeof data[key]==='string'){
                 if(!data[key]){
-                    return res.status(400).json({ success: false, message: `${key} is a required field` });
+                    return res.json({ success: false, message: `${key} is a required field` });
                 }
             }
             else{
                 if(data[key]===undefined || data[key]===null){
-                    return res.status(400).json({ success: false, message: `${key} is a required field` });
+                    return res.json({ success: false, message: `${key} is a required field` });
                 }
             }
         }
         
         if(!imageFile){
-            return res.status(400).json({success:false,message:"image is not uploaded"});
+            return res.json({success:false,message:"image is not uploaded"});
         }
         
         //validate email
         if(!validator.isEmail(email)){
-            return res.status(400).json({success:false,message:"email is not valid"});
+            return res.json({success:false,message:"email is not valid"});
         }
         
         //hashing password
@@ -60,14 +60,14 @@ const addDoctor = async(req,res) =>{
         const newDoctor = new doctorModel(doctorData)
         await newDoctor.save()
         
-        return res.status(201).json({
+        return res.json({
             success:true,
-            message:"The new doctor data is added in the dataBase"
+            message:"New doctor is added"
         })
 
     } catch (error) {
         console.log("Error in addDoctor Controller",error|| error.message)
-        return res.status(500).json({
+        return res.json({
             success:false,
             message:`There is an error occured: ${error}`
         })
@@ -94,7 +94,7 @@ const loginAdmin = async(req,res)=>{
 
     } catch (error) {
         console.log("Error in loginAdmin",error|| error.message)
-        return res.status(500).json({
+        return res.json({
             success:false,
             message:`There is an error occured: ${error}`
         })

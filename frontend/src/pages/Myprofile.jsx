@@ -1,22 +1,29 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import {assets} from '../assets/assets_frontend/assets'
+import { AppContext } from '../context/AppContext';
 const Myprofile = () => {
 
-  const [userData,setUserData] = useState({
-    name:'Edward Vincent',
-    email:'richardjameswap@gmail.com',
-    phone :'+1  123 456 7890',
-    address : {
-      line1 : '57th Cross, Richmond',
-      line2 :'Circle, Church Road, London'
-    },
-    gender:'Male',
-    dob:'2024-07-20'
-  })
-  const [isEditable ,setIsEditable] = useState(false);
-  return (
+const {userData,setUserData,backendURL,token,loadUserProfile} = useContext(AppContext) 
+const [isEditable ,setIsEditable] = useState(false);
+const [image,setImage] = useState(false)
+
+const updateUserProfileData = async () =>{
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+return userData && (
     <div className='max-w-lg flex flex-col gap-2 text-sm'>
-      <img className= 'w-36 rounded-md' src={assets.profile_pic} />
+      {
+        isEditable?
+        <div>
+
+        </div>
+        :<img className= 'w-36 rounded-md' src={assets.profile_pic} />
+      }
       {isEditable? 
       <input 
       type='text' value={userData.name} onChange={(e)=>(setUserData((prev)=>({...userData,name:e.target.value})))} 

@@ -5,14 +5,14 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const AddDoctor = () => {
-  const [docImg, SetDocImg] = useState(false);
+  const [image, SetImage] = useState(false);
   const [name, SetName] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [experience, SetExperience] = useState("1 Year");
   const [fees, SetFees] = useState("");
   const [about, SetAbout] = useState("");
-  const [speciality, SetSpeciality] = useState("General physician");
+  const [speciality, SetSpeciality] = useState("Software Engineer");
   const [degree, SetDegree] = useState("");
   const [address1, SetAddress1] = useState("");
   const [address2, SetAddress2] = useState("");
@@ -23,13 +23,13 @@ const AddDoctor = () => {
     event.preventDefault();
 
     try {
-      if (!docImg) {
+      if (!image) {
         return toast.error("Image Not Selected");
       }
 
       const formData = new FormData();
 
-      formData.append("image", docImg);
+      formData.append("image", image);
       formData.append("name", name);
       formData.append("email", email);
       formData.append("password", password);
@@ -48,15 +48,13 @@ const AddDoctor = () => {
         console.log(`${key}: ${value}`);
       });
 
-      const { data } = await axios.post(
-        backendUrl + "/api/admin/add-doctor",
-        formData,
-        { headers: { aToken } }
-      );
+      const backURL = import.meta.env.VITE_BACKEND_URL_FOR_ADD_DOCTOR;
+
+      const { data } = await axios.post(backURL + '/api/admin/add-doctor',formData,{ headers: { aToken } });
 
       if (data.success) {
         toast.success(data.message);
-        SetDocImg(false);
+        SetImage(false);
         SetName("");
         SetEmail("");
         SetPassword("");
@@ -82,12 +80,12 @@ const AddDoctor = () => {
           <label htmlFor="doc-img">
             <img
               className="w-16 bg-gray-100 rounded-full cursor-pointer"
-              src={docImg ? URL.createObjectURL(docImg) : assets.upload_area}
+              src={image ? URL.createObjectURL(image) : assets.upload_area}
               alt=""
             />
           </label>
           <input
-            onChange={(e) => SetDocImg(e.target.files[0])}
+            onChange={(e) => SetImage(e.target.files[0])}
             type="file"
             id="doc-img"
             hidden
@@ -180,12 +178,20 @@ const AddDoctor = () => {
                 name=""
                 id=""
               >
-                <option value="General physician">General physician</option>
-                <option value="Gynecologist">Gynecologist</option>
-                <option value="Dermatologist">Dermatologist</option>
-                <option value="Pediatricians">Pediatricians</option>
-                <option value="Neurologist">Neurologist</option>
-                <option value="Gastroenterologist">Gastroenterologist</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Film Director">Film Director</option>
+                <option value="Hotel Manager">Hotel Manager</option>
+                <option value="Architect">Architect</option>
+                <option value="Professional Athlete">Professional Athlete</option>
+                <option value="Marketing Specialist">Marketing Specialist</option>
+                <option value="Graphic Designer">Graphic Designer</option>
+                <option value="Cinematographer">Cinematographer</option>
+                <option value="Game Developer">Game Developer</option>
+                <option value="Aerospace Engineer">Aerospace Engineer</option>
+                <option value="Fashion Designer">Fashion Designer</option>
+                <option value="Artist">Artist</option>
+                <option value="Doctor">Doctor</option>
+
               </select>
             </div>
 
@@ -237,9 +243,9 @@ const AddDoctor = () => {
 
         <button
           type="submit"
-          className="bg-primary px-10 py-3 mt-4 text-white rounded-full"
+          className="bg-[#CC3F3F] px-10 py-3 mt-4 text-white rounded-full"
         >
-          Add doctor
+          Add Counsellor
         </button>
       </div>
     </form>

@@ -36,6 +36,24 @@ import General_physician from './General_physician.svg'
 import Gynecologist from './Gynecologist.svg'
 import Neurologist from './Neurologist.svg'
 import Pediatricians from './Pediatricians.svg'
+import software_engineer from './software_engineer.png'
+import aerospace_engineer from './aerospace_engineer.png'
+import architect from './architect.png'
+import artist from './artist.png'
+import athelete from './athelete.png'
+import cinematographer from './cinematographer.png'
+import doctor from './doctor.png'
+import fashion_designer from './fashion_designer.png'
+import film_director from './film_director.png'
+import game_developer from './game_developer.png'
+import graphic_designer from './graphic_designer.png'
+import hotel_manager from './hotel_manager.png'
+import marketing_specailist from './marketing_specailist.png'
+import header_counseller from './header_counseller.png'
+import main_logo from './main_logo.png'
+import main_appointment_img from './main_appointment_img.png'
+import main_contact_image from './main_contact_image.png'
+import main_about_image from './main_about_image.png'
 
 
 export const assets = {
@@ -55,33 +73,66 @@ export const assets = {
     dropdown_icon,
     upload_icon,
     stripe_logo,
-    razorpay_logo
+    razorpay_logo,
+    header_counseller,
+    main_logo,
+    main_appointment_img,
+    main_contact_image,
+    main_about_image,
 }
 
 export const specialityData = [
     {
-        speciality: 'General physician',
-        image: General_physician
+        speciality: 'Software Engineer',
+        image: software_engineer
     },
     {
-        speciality: 'Gynecologist',
-        image: Gynecologist
+        speciality: 'Film Director',
+        image: film_director
     },
     {
-        speciality: 'Dermatologist',
-        image: Dermatologist
+        speciality: 'Hotel Manager',
+        image: hotel_manager
     },
     {
-        speciality: 'Pediatricians',
-        image: Pediatricians
+        speciality: 'Architect',
+        image: architect
     },
     {
-        speciality: 'Neurologist',
-        image: Neurologist
+        speciality: 'Professional Athlete',
+        image: athelete
     },
     {
-        speciality: 'Gastroenterologist',
-        image: Gastroenterologist
+        speciality: 'Marketing Specialist',
+        image: marketing_specailist
+    },
+    {
+        speciality: 'Graphic Designer',
+        image: graphic_designer
+    },
+    {
+        speciality: 'Cinematographer',
+        image: cinematographer
+    },
+    {
+        speciality: 'Game Developer',
+        image: game_developer
+    },
+    {
+        speciality: 'Aerospace Engineer',
+        image: aerospace_engineer
+    },
+    {
+        speciality: 'Fashion Designer',
+        image: fashion_designer
+    },
+    {
+        speciality: 'Artist',
+        image: artist
+    },
+    {
+        speciality: 'Doctor',
+        image: doctor
     },
 ]
 

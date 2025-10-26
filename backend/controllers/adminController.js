@@ -62,7 +62,7 @@ const addDoctor = async (req, res) => {
 
     try {
 
-        const { name, email, password, speciality, degree, experience, about, fees, address } = req.body
+        const { name, email, password, experience, fees,about,speciality,degree, address } = req.body
         const imageFile = req.file
 
         // checking for all data to add doctor

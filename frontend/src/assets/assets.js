@@ -54,6 +54,7 @@ import main_logo from './main_logo.png'
 import main_appointment_img from './main_appointment_img.png'
 import main_contact_image from './main_contact_image.png'
 import main_about_image from './main_about_image.png'
+import favicon from './main_logo__1_-removebg-preview.png'
 
 
 export const assets = {
@@ -79,6 +80,7 @@ export const assets = {
     main_appointment_img,
     main_contact_image,
     main_about_image,
+    favicon,
 }
 
 export const specialityData = [

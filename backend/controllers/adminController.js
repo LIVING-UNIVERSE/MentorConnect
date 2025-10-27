@@ -164,7 +164,7 @@
 import jwt from "jsonwebtoken";
 import appointmentModel from "../models/appointmentModel.js";
 import doctorModel from "../models/doctorModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs"
 import validator from "validator";
 import userModel from "../models/userModel.js";
 import { cloudinary as cloud } from '../config/cloudinary.js';

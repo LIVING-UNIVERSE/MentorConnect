@@ -41,8 +41,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-    origin:["https://mentor-connect-6jqg.vercel.app","https://mentor-connect-oaep.vercel.app"]
-}))
+  origin: ["https://mentor-connect-6jqg.vercel.app", "https://mentor-connect-oaep.vercel.app/"],
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  credentials: true 
+}));
 
 
 app.use('/api/admin', adminRouter)

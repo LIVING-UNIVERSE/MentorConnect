@@ -41,7 +41,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-  origin: ["https://mentor-connect-6jqg.vercel.app", "https://mentor-connect-oaep.vercel.app","http://localhost:5173","http://localhost:5174"],
+  origin: ["https://mentor-connect-6jqg.vercel.app/", "https://mentor-connect-oaep.vercel.app/","http://localhost:5173","http://localhost:5174"],
   credentials: true
 }));
 

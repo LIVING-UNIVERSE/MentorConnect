@@ -1,33 +1,4 @@
-import express from 'express'
-import cors from 'cors'
-import 'dotenv/config'
-import connectDB from './config/mongoDB.js'
-import connectCloudinary from './config/cloudinary.js';
-import adminRouter from './routes/adminRoute.js';
-import doctorRouter from './routes/doctorRoute.js';
-import userRouter from './routes/userRoute.js';
 
-
-// app congig
-const app=express();
-const PORT = process.env.port || 4000
-
-// middlewares
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
-app.use(cors())
-connectDB()
-connectCloudinary()
-
-// api endpoint
-app.use('/api/admin',adminRouter)
-app.use('/api/doctor',doctorRouter)
-app.use('/api/user',userRouter)
-
-app.get('/',(req,res)=>{
-    res.send('API is working just fine')
-})
-
-app.listen(PORT,()=>{
-    console.log(`This server is running on ${PORT}`)
-})
+import app from './app.js'
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => console.log(`Server listening on ${PORT}`))
